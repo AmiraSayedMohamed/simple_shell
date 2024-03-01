@@ -1,20 +1,14 @@
 #include "main.h"
 
 /**
- * splitString - a function that splits a string into words based on a delimiter
- * @input: input string to be split
- * @delimiter: string of delimiter to determine word boundaries
+ * countWords - Counts the number of words in a string
+ * @input: Input string
+ * @delimiter: String of delimiters
  *
- * Return: pointer to an array of strings containing words of Null on failure
+ * Return: Number of words
  */
-
-char **splitString(const char *input, const char *delimiter)
+static int countWords(const char *input, const char *delimiter)
 {
-	if (input == NULL)
-		return (NULL);
-	if (delimiter == NULL)
-		delimiter = " ";
-
 	int numWords = 0;
 	const char *ptr = input;
 
@@ -27,18 +21,38 @@ char **splitString(const char *input, const char *delimiter)
 		while (*ptr != '\0' && !isDelimiter(*ptr, delimiter))
 			ptr++;
 	}
-	char **result = (char**)malloc((numWords + 1) * sizeof(char*));
+	return (numWords);
+}
+
+/**
+ * allocateMemory - Allocates memory for the array of strings
+ * @numWords: Number of words
+ *
+ * Return: Pointer to the allocated memory
+ */
+static char **allocateMemory(int numWords)
+{
+	char **result = (char **)malloc((numWords + 1) * sizeof(char *))
+
 	if (result == NULL)
-		return NULL;
+		return (NULL);
+	return (result);
+}
+/**
+ * exWords - Extracts words from input str & stores them in end arr
+ * @input: Input string
+ * @delimiter: String of delimiters
+ * @result: Array to store the extracted words
+ */
+static void exWords(const char *input, const char *delimiter, char **result)
+{
 	int resultSize = 0;
-	ptr = input;
+	const char *ptr = input;
 
 	while (*ptr != '\0')
 	{
 		while (*ptr != '\0' && isDelimiter(*ptr, delimiter))
-		{
 			ptr++;
-		}
 		int wordLen = 0;
 		const char *wordStart = ptr;
 
@@ -47,13 +61,13 @@ char **splitString(const char *input, const char *delimiter)
 			ptr++;
 			wordLen++;
 		}
-		result[resultSize] = (char*)malloc(wordLen + 1);
+		result[resultSize] = (char *)malloc(wordLen + 1);
 		if (result[resultSize] == NULL)
 		{
-			for (int i = 9; i < resultSize; i++)
+			for (int i = 0; i < resultSize; i++)
 				free(result[i]);
 			free(result);
-			return (NULL);
+			return;
 		}
 		for (int i = 0; i < wordLen; i++)
 		{
@@ -63,5 +77,30 @@ char **splitString(const char *input, const char *delimiter)
 		resultSize++;
 	}
 	result[resultSize] = NULL;
-	return result;
+}
+
+/**
+ * splitString - Splits a string into words based on a delimiter
+ * @input: Input string to be split
+ * @delimiter: String of delimiters to determine word boundaries
+ *
+ * Return: Pointer to array of strings containing the words or NULL on failure
+ */
+char **splitString(const char *input, const char *delimiter)
+{
+	if (input == NULL)
+		return (NULL);
+	if (delimiter == NULL)
+		delimiter = " ";
+
+	int numWords = countWords(input, delimiter);
+
+	if (numWords == 0)
+		return (NULL);
+	char **result = allocateMemory(numWords);
+
+	if (result == NULL)
+		return (NULL);
+	extractWords(input, delimiter, result);
+	return (result);
 }

@@ -12,6 +12,11 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 
+/* for read and write buffers */
+#define READ_BUF_SIZE 1024
+#define WRITE_BUF_SIZE 1024
+#define BUF_FLUSH -1
+
 /* str1_funcitons.c */
 int get_string_length(const char *input_string);
 int my_strcmp(const char *str1, const char *str2);
@@ -37,8 +42,10 @@ int isAlphabetical(char c);
 int stringToInteger(const char *str);
 
 /* split_string.c */
+static int countWords(const char *input, const char *delimiter);
+static char **allocateMemory(int numWords);
+static void exWords(const char *input, const char *delimiter, char **result);
 char **splitString(const char *input, const char *delimiter);
-
 
 /* memory.c*/
 int freeAndNull(void **ptr);

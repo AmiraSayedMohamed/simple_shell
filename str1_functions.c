@@ -22,16 +22,22 @@ int get_string_length(const char *input_string)
  *  Return: negative if s1 < s2, positive of s1 > s2, zero if s1 == s2
  */
 
+/**
+ * my_strcmp - a function to compare two strings
+ * @str1: pointer to the first string
+ * @str2: pointer to the second string
+ * Return: neg if str1 < str2, pos if str1 > str2, zero if str1 == str2
+ */
 int my_strcmp(const char *str1, const char *str2)
 {
 	while (*str1 != '\0' && *str2 != '\0')
 	{
 		if (*str1 != *str2)
-			return ((*str1 < *str2) ? -1 : -1);
+			return ((*str1 < *str2) ? -1 : 1);
 		str1++;
 		str2++;
 	}
-	return (0);
+	return (*str1 - *str2);
 }
 
 /**
