@@ -112,28 +112,28 @@ typedef struct builtin
 
 
 /* str1_funcitons.c */
-int get_string_length(const char *input_string);
-int my_strcmp(const char *str1, const char *str2);
-char *my_strcat(char *dest, const char *src);
-char *start_with(const char *str1, const char *str2);
+int _strlen(char *input_string);
+int _strcmp(char *str1,char *str2);
+char *_strcat(char *dest,char *src);
+char *starts_with(char *str1, char *str2);
 
 /* str2_functions.c */
-char *my_strcpy(char *dest, char *src);
-char *my_strdup(const char *original);
-void print_string(const char *str);
+char *_strcpy(char *dest, char *src);
+char *_strdup(const char *original);
+void _puts(const char *str);
 int _putchar(char c);
 
 /* str3_functions.c */
-char *copy_n_chars(const char *src, char *dest, int amount);
-void concatenateStringsLimited(char *dest, const char *src, int n);
-const char *locateCharacter(const char *str, char target);
+char *_strncpy(const char *src, char *dest, int amount);
+void _strncat(char *dest, const char *src, int n);
+const char *_strchr(const char *str, char target);
 
 
 /* check_string_atoi.c */
-int isDelimiter(char c, const char *delimiter);
-int isInteractiveMode(info_m *info);
-int isAlphabetical(char c);
-int stringToInteger(const char *str);
+int is_delim(char c, const char *delimiter);
+int interactive(info_m *info);
+int _isalpha(char c);
+int _atoi(const char *str);
 
 /* split_string.c */
 static int countWords(const char *input, const char *delimiter);
@@ -142,17 +142,17 @@ static void exWords(const char *input, const char *delimiter, char **result);
 char **splitString(const char *input, const char *delimiter);
 
 /* reallocateMemory.c*/
-void *reallocateMemory(void *ptr, unsigned int prevSize, unsigned int newSize);
-void freeStringArray(char **array);
-void *fillMemory(void *ptr, unsigned char byte, unsigned int numBytes);
-int freeAndNull(void **ptr);
+void *_realloc(void *ptr, unsigned int prevSize, unsigned int newSize);
+void ffree(char **array);
+void *_memset(void *ptr, unsigned char byte, unsigned int numBytes);
+int bfree(void **ptr);
 
 /*string_list.c*/
-list_t *add_node_start(list_t **head, const char *str, int num);
+list_t *add_node(list_t **head, const char *str, int num);
 list_t *add_node_end(list_t **head, const char *str, int num);
-size_t print_str_list(const list_t *h);
+size_t print_list_str(const list_t *h);
 int delete_node_at_index(list_t **head, unsigned int index);
-void free_str_list(list_t **head_ptr);
+void free_list(list_t **head_ptr);
 
 /* shell_util1.c  */
 int _myhistory(info_t *info);
@@ -162,34 +162,35 @@ int print_alias(list_t *node);
 int _myalias(info_t *info);
 
 /* shell_util.c */
-int _exit_shell(info_t *info);
-int _change_directory(info_t *info);
-int _display_help(info_t *info);
+int _myexit(info_t *info);
+int _mycd(info_t *info);
+int _myhelp(info_t *info);
 
 /* shell_history.c */
 char *get_history_file(info_t *info);
 int write_history(info_t *info);
-static char *read_history_from_file(info_t *info, int fd);
 int read_history(info_t *info);
+int build_history_list(info_t *info, char *buf, int linecount);
+int renumber_history(info_t *info);
 
 /* shell_exec.c */
-int run_shell(info_t *info, char **av);
-int find_builtin(info_t *info);
-void find_command(info_t *info);
-void fork_command(info_t *info);
+int hsh(info_t *info, char **);
+int find_builtin(info_t *);
+void find_cmd(info_t *);
+void fork_cmd(info_t *);
 
 /* list_functions.c */
-size_t list_length(const list_t *head);
+size_t list_len(const list_t *head);
 char **list_to_strings(list_t *head);
-size_t print_list_nodes(const list_t *head);
-list_t *find_node_with_prefix(list_t *head, char *prefix, char c);
+size_t print_list(const list_t *head);
+list_t *node_starts_with(list_t *head, char *prefix, char c);
 ssize_t get_node_index(list_t *head, list_t *node);
 
 /* io_utils.c */
-void _print_string_stderr(char *string);
-int _put_char_stderr(char c);
-int _put_char_fd(char c, int fd);
-int _print_string_fd(char *string, int fd);
+void _eputs(char *);
+int _eputchar(char);
+int _putfd(char c, int fd);
+int _putsfd(char *str, int fd);
 
 /* input_handling.c */
 ssize_t input_buf(info_t *info, char **buf, size_t *len);
@@ -199,9 +200,9 @@ int _getline(info_t *info, char **ptr, size_t *length);
 void sigintHandler(__attribute__((unused))int sig_num);
 
 /* info_manager.c */
-void init_info(info_t *info);
-void populate_info(info_t *info, char **arguments);
-void clear_info(info_t *info, int clear_all);
+void clear_info(info_t *info);
+void set_info(info_t *info, char **arguments);
+void free_info(info_t *info, int clear_all);
 
 /* info_management.c */
 void initialize_info(info_t *info);
@@ -209,11 +210,11 @@ void populate_info(info_t *info, char **av);
 void deallocate_info(info_t *info, int all);
 
 /*error_utils.c*/
-int _str_to_int(char *str);
-void print_error_msg(info_t *info, char *error_msg);
-int print_decimal(int number, int fd);
-char *convert_to_string(long int num, int base, int flags);
-void remove_comment(char *buf);
+int _erratoi(char *str);
+void print_error(info_t *info, char *error_msg);
+int print_d(int number, int fd);
+char *convert_number(long int num, int base, int flags);
+void remove_comments(char *buf);
 
 /* environment_utils.c */
 int _myenv(info_t *info);
@@ -223,21 +224,25 @@ int _myunsetenv(info_t *info);
 int populate_env_list(info_t *info);
 
 /* environment.c */
-char **fetch_environment(info_t *info);
-int _delete_env_var(info_t *info, char *var_name);
-int _set_env_var(info_t *info, char *var_name, char *value);
+char **get_environ(info_t *info);
+int _unsetenv(info_t *info, char *var_name);
+int _setenv(info_t *info, char *var_name, char *value);
 
 /* command_search.c */
-int is_cmd(info_t *info, char *path);
-char *dup_chars(char *pathstr, int start, int stop);
-char *find_path(info_t *info, char *pathstr, char *cmd);
+int is_cmd(info_t *, char *);
+char *dup_chars(char *, int, int);
+char *find_path(info_t *info, char *, char *);
 
 /* command_processing.c */
-int is_delimiter(info_t *info, char *buf, size_t *pos);
-void checkConti(info_t *info, char *buf, size_t *pos, size_t start, size_t len);
-int replace_aliases(info_t *info);
-int replace_variables(info_t *info);
+int is_chain(info_t *info, char *buf, size_t *pos);
+void check_chain(info_t *info, char *buf, size_t *pos, size_t start, size_t len);
+int replace_alias(info_t *info);
+int replace_vars(info_t *info);
 int replace_string(char **old, char *new);
+
+/* loopsh.c */
+int loophsh(char **);
+
 
 
 #endif
