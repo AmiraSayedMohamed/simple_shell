@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * list_length - determines length of linked list
+ * list_len - determines length of linked list
  * @head: pointer to first node
  *
  * Return: size of list
  */
-size_t list_length(const list_t *head)
+size_t list_len(const list_t *head)
 {
 	size_t count = 0;
 
@@ -56,12 +56,12 @@ char **list_to_strings(list_t *head)
 }
 
 /**
- * print_list_nodes - prints all elements of a list_t linked list
+ * print_list - prints all elements of a list_t linked list
  * @head: pointer to first node
  *
  * Return: size of list
  */
-size_t print_list_nodes(const list_t *head)
+size_t print_list(const list_t *head)
 {
 	size_t count = 0;
 
@@ -79,14 +79,14 @@ size_t print_list_nodes(const list_t *head)
 }
 
 /**
- * find_node_with_prefix - returns node whose string starts with prefix
+ * node_starts_with - returns node whose string starts with prefix
  * @head: pointer to list head
  * @prefix: string to match
  * @c: the next character after prefix to match
  *
  * Return: match node or null
  */
-list_t *find_node_with_prefix(list_t *head, char *prefix, char c)
+list_t *node_starts_with(list_t *head, char *prefix, char c)
 {
 	char *p = NULL;
 

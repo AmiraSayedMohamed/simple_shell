@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * _exit_shell - exits the shell
+ * _myexit - exits the shell
  * @info: Structure containing potential arguments.
  * Return: -2 if exit is requested, 1 for illegal exit number, else -2
  */
-int _exit_shell(info_t *info)
+int _myexit(info_t *info)
 {
 	int exit_status;
 
@@ -28,11 +28,11 @@ int _exit_shell(info_t *info)
 }
 
 /**
- * _change_directory - changes the current directory of the process
+ * _mycd - changes the current directory of the process
  * @info: Structure containing potential arguments.
  * Return: Always 0
  */
-int _change_directory(info_t *info)
+int _mycd(info_t *info)
 {
 	char *new_dir, buffer[1024];
 	int chdir_result;
@@ -63,11 +63,11 @@ int _change_directory(info_t *info)
 }
 
 /**
- * _display_help - displays a help message
+ * _myhelp - displays a help message
  * @info: Structure containing potential arguments.
  * Return: Always 0
  */
-int _display_help(info_t *info)
+int _myhelp(info_t *info)
 {
 	(void)info;
 	_puts("help call works. Function not yet implemented \n");

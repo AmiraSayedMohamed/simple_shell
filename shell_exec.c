@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * run_shell - main shell loop
+ * hsh - main shell loop
  * @info: parameter & return info struct
  * @av: argument vector from main()
  *
  * Return: 0 on success, 1 on error, or error code
  */
-int run_shell(info_t *info, char **av)
+int hsh(info_t *info, char **av)
 {
 	ssize_t ret = 0;
 	int builtin_return = 0;
@@ -78,12 +78,12 @@ int find_builtin(info_t *info)
 }
 
 /**
- * find_command - finds a command in PATH
+ * find_cmd - finds a command in PATH
  * @info: parameter & return info struct
  *
  * Return: void
  */
-void find_command(info_t *info)
+void find_cmd(info_t *info)
 {
 	char *path = NULL;
 	int i, num_of_args;
@@ -120,12 +120,12 @@ void find_command(info_t *info)
 }
 
 /**
- * fork_command - forks an exec thread to run command
+ * fork_cmd - forks an exec thread to run command
  * @info: parameter & return info struct
  *
  * Return: void
  */
-void fork_command(info_t *info)
+void fork_cmd(info_t *info)
 {
 	pid_t child_pid;
 
