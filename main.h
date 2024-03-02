@@ -240,9 +240,4 @@ int replace_alias(info_t *info);
 int replace_vars(info_t *info);
 int replace_string(char **old, char *new);
 
-/* loopsh.c */
-int loophsh(char **);
-
-
-
 #endif

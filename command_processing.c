@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * is_delimiter - test if current char in buffer is a chain delimiter
+ * is_chain - test if current char in buffer is a chain delimiter
  * @info: the parameter struct
  * @buf: the char buffer
  * @pos: address of current position in buf
  *
  * Return: 1 if chain delimiter, 0 otherwise
  */
-int is_delimiter(info_t *info, char *buf, size_t *pos)
+int is_chain(info_t *info, char *buf, size_t *pos)
 {
 	size_t j = *pos;
 
@@ -36,7 +36,7 @@ int is_delimiter(info_t *info, char *buf, size_t *pos)
 }
 
 /**
- * checkConti - checks if chaining should continue based on last status
+ * check_chain - checks if chaining should continue based on last status
  * @info: the parameter struct
  * @buf: the char buffer
  * @pos: address of current position in buf
@@ -45,7 +45,7 @@ int is_delimiter(info_t *info, char *buf, size_t *pos)
  *
  * Return: Void
  */
-void checkConti(info_t *info, char *buf, size_t *pos, size_t start, size_t len)
+void check_chain(info_t *info, char *buf, size_t *pos, size_t start, size_t len)
 {
 	size_t j = *pos;
 
@@ -63,12 +63,12 @@ void checkConti(info_t *info, char *buf, size_t *pos, size_t start, size_t len)
 }
 
 /**
- * replace_aliases - replaces aliases in the tokenized string
+ * replace_alias - replaces aliases in the tokenized string
  * @info: the parameter struct
  *
  * Return: 1 if replaced, 0 otherwise
  */
-int replace_aliases(info_t *info)
+int replace_alias(info_t *info)
 {
 	int i;
 	list_t *node;
@@ -92,12 +92,12 @@ int replace_aliases(info_t *info)
 }
 
 /**
- * replace_variables - replaces variables in the tokenized string
+ * replace_vars - replaces variables in the tokenized string
  * @info: the parameter struct
  *
  * Return: 1 if replaced, 0 otherwise
  */
-int replace_variables(info_t *info)
+int replace_vars(info_t *info)
 {
 	int i = 0;
 	list_t *node;
