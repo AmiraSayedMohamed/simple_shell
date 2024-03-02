@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _print_string_stderr - prints an input string to stderr
+ * _eputs - prints an input string to stderr
  * @string: the string to be printed
  *
  * Return: Nothing
  */
-void _print_string_stderr(char *string)
+void _eputs(char *string)
 {
 	int index = 0;
 
@@ -20,13 +20,13 @@ void _print_string_stderr(char *string)
 }
 
 /**
- * _put_char_stderr - writes the character c to stderr
+ * _eputchar - writes the character c to stderr
  * @c: The character to print
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _put_char_stderr(char c)
+int _eputchar(char c)
 {
 	static int buffer_index;
 	static char buffer[WRITE_BUFFER_SIZE];
@@ -42,14 +42,14 @@ int _put_char_stderr(char c)
 }
 
 /**
- * _put_char_fd - writes the character c to given file descriptor
+ * _putfd - writes the character c to given file descriptor
  * @c: The character to print
  * @fd: The file descriptor to write to
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _put_char_fd(char c, int fd)
+int _putfd(char c, int fd)
 {
 	static int buffer_index;
 	static char buffer[WRITE_BUFFER_SIZE];
@@ -65,13 +65,13 @@ int _put_char_fd(char c, int fd)
 }
 
 /**
- * _print_string_fd - prints an input string
+ * _putsfd - prints an input string
  * @string: the string to be printed
  * @fd: the file descriptor to write to
  *
  * Return: the number of characters put
  */
-int _print_string_fd(char *string, int fd)
+int _putsfd(char *string, int fd)
 {
 	int count = 0;
 
