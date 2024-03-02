@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * fetch_environment - returns a copy of the environment variables
+ * get_environ - returns a copy of the environment variables
  * @info: Structure containing relevant information.
  *
  * Return: Array of strings containing environment variables.
  */
-char **fetch_environment(info_t *info)
+char **get_environ(info_t *info)
 {
 	if (!info->environment || info->env_altered)
 	{
@@ -18,13 +18,13 @@ char **fetch_environment(info_t *info)
 }
 
 /**
- * _delete_env_var - Remove an environment variable
+ * _unsetenv - Remove an environment variable
  * @info: Structure containing relevant information.
  * @var_name: the name of the environment variable to delete
  *
  * Return: 1 on successful deletion, 0 otherwise
  */
-int _delete_env_var(info_t *info, char *var_name)
+int _unsetenv(info_t *info, char *var_name)
 {
 	list_t *node = info->env;
 	size_t index = 0;
@@ -50,14 +50,14 @@ int _delete_env_var(info_t *info, char *var_name)
 }
 
 /**
- * _set_env_var - Initialize new enviro variable or modify an existing one
+ * _setenv - Initialize new enviro variable or modify an existing one
  * @info: Structure containing relevant information.
  * @var_name: the name of the environment variable
  * @value: the value to set for the environment variable
  *
  * Return: 0 on success, 1 on failure
  */
-int _set_env_var(info_t *info, char *var_name, char *value)
+int _setenv(info_t *info, char *var_name, char *value)
 {
 	char *buffer = NULL;
 	list_t *node;

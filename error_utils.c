@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _str_to_int - Converts a string to an integer
+ * _erratoi - Converts a string to an integer
  * @str: The string to be converted
  *
  * Return: Converted number if successful, otherwise -1
  */
-int _str_to_int(char *str)
+int _erratoi(char *str)
 {
 	int index = 0;
 	unsigned long int result = 0;
@@ -29,11 +29,11 @@ int _str_to_int(char *str)
 }
 
 /**
- * print_error_msg - Prints an error message
+ * print_error - Prints an error message
  * @info: Structure containing parameter and return info
  * @error_msg: String containing specified error type
  */
-void print_error_msg(info_t *info, char *error_msg)
+void print_error(info_t *info, char *error_msg)
 {
 	_eputs(info->fname);
 	_eputs(": ");
@@ -45,13 +45,13 @@ void print_error_msg(info_t *info, char *error_msg)
 }
 
 /**
- * print_decimal - Prints a decimal (integer) number (base 10)
+ * print_d - Prints a decimal (integer) number (base 10)
  * @number: The number to print
  * @fd: The file descriptor to write to
  *
  * Return: The number of characters printed
  */
-int print_decimal(int number, int fd)
+int print_d(int number, int fd)
 {
 	int (*print_char)(char) = _put_char;
 	int i, count = 0;
@@ -86,14 +86,14 @@ int print_decimal(int number, int fd)
 }
 
 /**
- * convert_to_string - Converts a number to a string
+ * convert_number - Converts a number to a string
  * @num: Number to convert
  * @base: Base for conversion
  * @flags: Argument flags
  *
  * Return: Pointer to the converted string
  */
-char *convert_to_string(long int num, int base, int flags)
+char *convert_number(long int num, int base, int flags)
 {
 	static char *digits;
 	static char buffer[50];
@@ -122,10 +122,10 @@ char *convert_to_string(long int num, int base, int flags)
 }
 
 /**
- * remove_comment - Replaces the first instance of '#' with '\0'
+ * remove_comments - Replaces the first instance of '#' with '\0'
  * @buf: Address of the string to modify
  */
-void remove_comment(char *buf)
+void remove_comments(char *buf)
 {
 	int index;
 
