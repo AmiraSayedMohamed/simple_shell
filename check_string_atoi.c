@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * isInteractiveMode - checks if the shell is in interactive mode
+ * interactive - checks if the shell is in interactive mode
  * @info: Pointer to a struct address
  *
  * Return: (1) if in interactive mode, (0) otherwise
  */
-int isInteractiveMode(info_t *info)
+int interactive(info_t *info)
 {
 	if (isatty(STDIN_FILENO))
 	{
@@ -19,13 +19,13 @@ int isInteractiveMode(info_t *info)
 }
 
 /**
- * isDelimiter - function to check if a character is a delimiter
+ * is_delim - function to check if a character is a delimiter
  * @c: the character we want to check
  * @delimiter: string of delimiters to compare with
  *
  * Return: (1) if character is a delimiter, (0) otherwise
  */
-int isDelimiter(char c, const char *delimiter)
+int is_delim(char c, const char *delimiter)
 {
 	while (*delimiter != '\0')
 	{
@@ -39,12 +39,12 @@ int isDelimiter(char c, const char *delimiter)
 }
 
 /**
- * isAlphabetical - Checks if a character is alphabetical
+ * _isalpha - Checks if a character is alphabetical
  * @c: The character to check
  *
  * Return: (1) if c is alphabetical, (0) otherwise
  */
-int isAlphabetical(char c)
+int _isalpha(char c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 	{
@@ -57,12 +57,12 @@ int isAlphabetical(char c)
 }
 
 /**
- * stringToInteger - Converts a string to an integer
+ * _atoi - Converts a string to an integer
  * @str: The string to be converted
  *
  * Return: The converted integer, or 0 if no number in the string
  */
-int stringToInteger(const char *str)
+int atoi(const char *str)
 {
 	int result = 0;
 	int sign = 1; /* sign of the number 1 for positive, -1 for negative */

@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * get_string_length - returns the length of he string
+ * _strlen - returns the length of he string
  * @input_string: the string whose length to check
  * Return: integer length of string
  */
 
-int get_string_length(const char *input_string)
+int _strlen(const char *input_string)
 {
 	int length = 0;
 
@@ -16,19 +16,14 @@ int get_string_length(const char *input_string)
 }
 
 /**
- * my_strcmp - a functionto compare two string
+ * _strcmp - a functionto compare two string
  * @str1: the first string
  * @str2: the second string
  *  Return: negative if s1 < s2, positive of s1 > s2, zero if s1 == s2
  */
 
-/**
- * my_strcmp - a function to compare two strings
- * @str1: pointer to the first string
- * @str2: pointer to the second string
- * Return: neg if str1 < str2, pos if str1 > str2, zero if str1 == str2
- */
-int my_strcmp(const char *str1, const char *str2)
+
+int _strcmp(const char *str1, const char *str2)
 {
 	while (*str1 != '\0' && *str2 != '\0')
 	{
@@ -41,14 +36,14 @@ int my_strcmp(const char *str1, const char *str2)
 }
 
 /**
- * my_strcat - a function that concatenate two string
+ * *_strcat - a function that concatenate two string
  * @dest: the destination buffer
  * @src: the source buffer
  *
  * Return: pointer to destination buffer
  */
 
-char *my_strcat(char *dest, const char *src)
+char *_strcat(char *dest, const char *src)
 {
 	char *original_dest = dest;
 
@@ -66,14 +61,14 @@ char *my_strcat(char *dest, const char *src)
 }
 
 /**
- * start_with - checks if str1 starts with str2
+ * starts_with - checks if str1 starts with str2
  * @str1: string to search
  * @str2: the substring to find
  *
  * Return: address of next char of haystack of NULL
  */
 
-char *start_with(const char *str1, const char *str2)
+char *starts_with(const char *str1, const char *str2)
 {
 	while (*str2 != '\0')
 	{

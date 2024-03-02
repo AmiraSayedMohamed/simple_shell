@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * reallocateMemory - Reallocates a block of memory
+ * _realloc - Reallocates a block of memory
  * @ptr: Pointer to the previosly allocated block
  * @prevSize: Byte size of previous block
  * @newSize: Byte size of the new block
  *
  * Return: Pointer to the newly allocated block
  */
-void *reallocateMemory(void *ptr, unsigned int prevSize, unsigned int newSize)
+void *_realloc(void *ptr, unsigned int prevSize, unsigned int newSize)
 {
 	void *newPtr;
 
@@ -34,14 +34,14 @@ void *reallocateMemory(void *ptr, unsigned int prevSize, unsigned int newSize)
 }
 
 /**
- * fillMemory - Fills a memory area with a constant byte
+ * _memset - Fills a memory area with a constant byte
  * @ptr: Pointer to the memory area to be filled
  * @byte: Constant byte to fill the memory with
  * @numBytes: Number of bytes to be filled
  *
  * Return: A pointer to the filled memory area (same as ptr)
  */
-void *fillMemory(void *ptr, unsigned char byte, unsigned int numBytes)
+void *_memset(void *ptr, unsigned char byte, unsigned int numBytes)
 {
 	unsigned char *bytePtr = (unsigned char *)ptr;
 
@@ -54,12 +54,12 @@ void *fillMemory(void *ptr, unsigned char byte, unsigned int numBytes)
 }
 
 /**
- * freeStringArray - a function that frees the memory allocated for an array
+ * ffree - a function that frees the memory allocated for an array
  * @array: pointer to the array of strings
  *
  * Return: nothing
  */
-void freeStringArray(char **array)
+void ffree(char **array)
 {
 	if (array != NULL)
 	{
@@ -72,13 +72,13 @@ void freeStringArray(char **array)
 }
 
 /**
- * freeAndNull - frees a pointer and sets it to NULL
+ * bfree - frees a pointer and sets it to NULL
  * @ptr: Address of the pointer to free
  *
  * Return: (1) if freed successfully, (0) otherwise
  */
 
-int freeAndNull(void **ptr)
+int bfree(void **ptr)
 {
 	if (ptr == NULL || *ptr == NULL)
 	{

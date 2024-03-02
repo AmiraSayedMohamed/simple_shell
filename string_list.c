@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * add_node_start - adds a node to the start of the list
+ * add_node - adds a node to the start of the list
  * @head: pointer to pointer to the head node
  * @str: string to be stored in the new node
  * @num: index used by history
  *
  * Return: pointer to the new head of the list
  */
-list_t *add_node_start(list_t **head, const char *str, int num)
+list_t *add_node(list_t **head, const char *str, int num)
 {
 	list_t *new_head;
 
@@ -86,12 +86,12 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 }
 
 /**
- * print_str_list - prints only the str element of a list_t linked list
+ * print_list_str - prints only the str element of a list_t linked list
  * @h: pointer to the first node
  *
  * Return: number of nodes in the list
  */
-size_t print_str_list(const list_t *h)
+size_t print_list_str(const list_t *h)
 {
 	size_t count = 0;
 
@@ -151,12 +151,12 @@ int delete_node_at_index(list_t **head, unsigned int index)
 }
 
 /**
- * free_str_list - frees all nodes of a list
+ * free_list - frees all nodes of a list
  * @head_ptr: pointer to pointer to the head node
  *
  * Return: void
  */
-void free_str_list(list_t **head_ptr)
+void free_list(list_t **head_ptr)
 {
 	list_t *current, *next_node;
 

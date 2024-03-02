@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * my_strcpy - copies a string
+ * _strcpy - copies a string
  * @dest: the destination
  * @src: source
  * Return: pointer to destination
  */
 
-char *my_strcpy(char *dest, char *src)
+char *_strcpy(char *dest, char *src)
 {
 	char *original_dest = dest;
 
@@ -17,13 +17,13 @@ char *my_strcpy(char *dest, char *src)
 }
 
 /**
- * my_strdup - duplicate a string
+ * _strdup - duplicate a string
  * @original: the string ti duplicated string
  *
  * Return: pointer to duplicated string
  */
 
-char *my_strdup(const char *original)
+char *_strdup(const char *original)
 {
 	if (original == NULL)
 		return (NULL);
@@ -45,13 +45,13 @@ char *my_strdup(const char *original)
 
 
 /**
- * print_string - prints an input string
+ * _puts - prints an input string
  * @str: the string to be print
  *
  * Return: Nothing
  */
 
-void print_string(const char *str)
+void _puts(const char *str)
 {
 	while (*str != '\0')
 	{

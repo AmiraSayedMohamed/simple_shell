@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * copy_n_chars - a functin that copy a string but using limited character
+ * _strncpy - a functin that copy a string but using limited character
  * @src: the source string
  * @dest: the destination string to be copies
  * @amount: the amount of bytes that maximally used
  * Return: the string
  */
 
-char *copy_n_chars(const char *src, char *dest, int amount)
+char *_strncpy(const char *src, char *dest, int amount)
 {
 	int i;
 
@@ -19,14 +19,14 @@ char *copy_n_chars(const char *src, char *dest, int amount)
 }
 
 /**
- * concatenateStringLimited - concatenate two string with limited character
+ * _strncat - concatenate two string with limited character
  * @dest: the first string
  * @src: the second string
  * @n: the amount of byted that maximally used
  * Return: the concatenated string
  */
 
-void concatenateStringLimited(char *dest, const char *src, int n)
+void _strncat(char *dest, const char *src, int n)
 {
 	int dest_len = 0;
 
@@ -43,14 +43,14 @@ void concatenateStringLimited(char *dest, const char *src, int n)
 }
 
 /**
- * locateCharacter - a function that locates a character in a string
+ * _strchr - a function that locates a character in a string
  * @str: string to parsed
  * @target: the character to look for
  *
  * Return: (s) a pointer to the memory area s
  */
 
-const char *locateCharacter(const char *str, char target)
+const char *_strchr(const char *str, char target)
 {
 	while (*str != '\0')
 	{
